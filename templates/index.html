@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Walmart Sales Prediction</title>
+</head>
+<body>
+
+    <h2>Walmart Weekly Sales Prediction</h2>
+
+    <form method="post">
+        <label>Enter Product (Department ID):</label><br>
+        <input type="number" name="product" required><br><br>
+
+        <label>Enter Future Week (1–52):</label><br>
+        <input type="number" name="week" min="1" max="52" required><br><br>
+
+        <button type="submit">Predict Sales</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if prediction %}
+        <h3>Predicted Weekly Sales: {{ prediction }}</h3>
+        <img src="data:image/png;base64,{{ graph }}">
+    {% endif %}
+
+</body>
+</html>
